@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S E A C A F E</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: url('images/move.gif') center/cover fixed no-repeat;
+            color: white;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .6);
+            z-index: -1;
+        }
+
+        .content-section {
+            display: none;
+        }
+
+        .show-content {
+            display: block;
+            animation: fade .3s ease;
+        }
+
+        @keyframes fade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .logo-box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .logo-box h1 {
+            margin: 0;
+            color: #008b8b;
+            font-style: italic;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .nav-btn {
+            width: 100%;
+            border: none;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #008b8b;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-btn:hover {
+            background: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .nav-btn.active-nav {
+            background: #008b8b;
+            color: white;
+        }
+
+        .tabs-container {
+            background: rgba(15, 23, 42, 0.75);
+            padding: 15px 25px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tab-link {
+            cursor: pointer;
+            color: #94a3b8;
+            font-weight: bold;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 5px;
+            transition: color 0.2s;
+        }
+
+        .tab-link:hover {
+            color: white;
+        }
+
+        .tab-link.active-tab {
+            color: #00cccc;
+            border-color: #00cccc;
+        }
+
+        .menu-row {
+            display: flex;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+        }
+
+        .menu-img {
+            width: 200px;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .menu-text {
+            flex: 1;
+            padding: 20px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            color: rgb(0, 255, 255);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .description {
+            color: #e2e8f0;
+            font-size: 0.95rem;
+        }
+
+        .info-box {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+        }
+
+        /* Fixed black text issue in About and Special descriptions */
+        .info-box p, 
+        .info-box h2, 
+        .info-box h3,
+        .special-card p,
+        .special-card h2,
+        .special-card h5 {
+            color: #ffffff !important;
+        }
+
+        .about-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .special-card {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
+            height: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+            transition: transform 0.25s ease;
+        }
+
+        .special-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .special-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .transparent-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 6px;
+            padding: 12px;
+        }
+
+        .transparent-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .transparent-input:focus {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            box-shadow: none;
+            border-color: #00cccc;
+        }
+
+        .btn {
+            background: #008b8b;
+            color: white;
+            font-weight: bold;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: #006666;
+            color: white;
+        }
+
+        .col-lg-4 {
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container py-5">
+        <div class="row g-4">
+
+
+            <div class="col-lg-4">
+
+                <div class="logo-box shadow">
+                    <h1>SEA CAFE</h1>
+                </div>
+
+                <div class="row g-3">
+
+                    <div class="col-6">
+                        <button onclick="changeSection('menu',this)" class="nav-btn active-nav shadow">
+                            <i class="fa-solid fa-mug-saucer fa-xl"></i>Menu
+                        </button>
+                    </div>
+
+                    <div class="col-6">
+                        <button onclick="changeSection('about',this)" class="nav-btn shadow">
+                            <i class="fa-solid fa-users fa-xl"></i>About
+                        </button>
+                    </div>
+
+                    <div class="col-6">
+                        <button onclick="changeSection('special',this)" class="nav-btn shadow">
+                            <i class="fa-solid fa-martini-glass fa-xl"></i>Special
+                        </button>
+                    </div>
+
+                    <div class="col-6">
+                        <button onclick="changeSection('contact',this)" class="nav-btn shadow">
+                            <i class="fa-solid fa-comments fa-xl"></i>Contact
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-lg-8">
+
+
+                <div id="menu" class="content-section show-content">
+
+                    <div class="tabs-container">
+                        <span id="tab1" onclick="showSubMenu('iced','tab1')" class="tab-link active-tab">Iced
+                            Coffee</span>
+
+                        <span id="tab2" onclick="showSubMenu('hot','tab2')" class="tab-link">Hot Coffee</span>
+
+                        <span id="tab3" onclick="showSubMenu('juice','tab3')" class="tab-link">Fruit Juice</span>
+                    </div>
+
+                    <div id="iced" class="submenu-content">
+
+                        <div class="menu-row shadow">
+                            <img src="./images/image11.png" class="menu-img">
+                            <div class="menu-text">
+                                <div class="menu-header">
+                                    <h5>Iced Americano</h5>
+                                    <span class="price">₹100</span>
+                                </div>
+                                <div class="description">Fresh chilled americano coffee.</div>
+                            </div>
+                        </div>
+
+                        <div class="menu-row shadow">
+                            <img src="./images/image22.png" class="menu-img">
+                            <div class="menu-text">
+                                <div class="menu-header">
+                                    <h5>Iced Cappuccino</h5>
+                                    <span class="price">₹120</span>
+                                </div>
+                                <div class="description">Cold creamy cappuccino.</div>
+                            </div>
+                        </div>
+
+                        <div class="menu-row shadow">
+                            <img src="./images/image33.png" class="menu-img">
+                            <div class="menu-text">
+                                <div class="menu-header">
+                                    <h5>Iced Red Eye</h5>
+                                    <span class="price">₹150</span>
+                                </div>
+                                <div class="description">Cold Iced Red Eye.</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div id="hot" class="submenu-content" style="display:none;">
+
+                        <div class="menu-row shadow">
+                            <img src="./images/image44.png" class="menu-img">
+                            <div class="menu-text">
+                                <div class="menu-header">
+                                    <h5>Hot Flat White</h5>
+                                    <span class="price">₹150</span>
+                                </div>
+                                <div class="description">Warm smooth Hot Flat White.</div>
+                            </div>
+                        </div>
+
+                        <div class="menu-row shadow">
+                            <img src="./images/image55.png" class="menu-img">
+                            <div class="menu-text">
+                                <div class="menu-header">
+                                    <h5>Hot Cortado</h5>
+                                    <span class="price">₹160</span>
+                                </div>
+                                <div class="description">Warm Hot Cortado.</div>
+                            </div>
+                        </div>
+
+                        <div class="menu-row shadow">
+                            <img src="./images/image77.png" class="menu-img">
+                            <div class="menu-text">
+                                <div class="menu-header">
+                                    <h5>Hot Vanilla Latte</h5>
+                                    <span class="price">₹175</span>
+                                </div>
+                                <div class="description">Warm smooth Hot Vanilla Latte.</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div id="juice" class="submenu-content" style="display:none;">
+
+                        <div class="menu-row shadow">
+                            <img src="./images/image88.png" class="menu-img">
+                            <div class="menu-text">
+                                <div class="menu-header">
+                                    <h5>Orange Juice</h5>
+                                    <span class="price">₹85</span>
+                                </div>
+                                <div class="description">Fresh Orangefruit juice.</div>
+                            </div>
+                        </div>
+
+                        <div class="menu-row shadow">
+                            <img src="./images/image99.png" class="menu-img">
+                            <div class="menu-text">
+                                <div class="menu-header">
+                                    <h5>Apple Juice</h5>
+                                    <span class="price">₹85</span>
+                                </div>
+                                <div class="description">Fresh Apple fruit juice.</div>
+                            </div>
+                        </div>
+
+                        <div class="menu-row shadow">
+                            <img src="./images/image1010.png" class="menu-img">
+                            <div class="menu-text">
+                                <div class="menu-header">
+                                    <h5>Gova Juice</h5>
+                                    <span class="price">₹85</span>
+                                </div>
+                                <div class="description">Fresh Gova fruit juice.</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <div id="about" class="content-section">
+
+                    <div class="info-box shadow mb-4">
+                        <div class="row g-4 align-items-start">
+
+                            <div class="col-md-5">
+                                <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=700"
+                                    class="about-img">
+                            </div>
+
+                            <div class="col-md-7">
+                                <h2 class="mb-4">About Sea Cafe</h2>
+                                <p class="lh-lg">
+                                    Sea Cafe is a sea themed modern cafe for coffee lovers.
+                                    Enjoy premium drinks, peaceful ambience and quality service.
+                                </p>
+                                <p class="lh-lg">
+                                    We welcome families and friends to relax together.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="info-box shadow">
+                        <div class="row g-4 align-items-start">
+
+                            <div class="col-md-8">
+                                <h2 class="mb-4">How we began</h2>
+                                <p class="lh-lg">
+                                    Started with a dream to create a calm cafe space with sea vibes.
+                                </p>
+                                <p class="lh-lg">
+                                    Today we continue serving coffee, snacks and smiles daily.
+                                </p>
+                            </div>
+
+                            <div class="col-md-4">
+                                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=700"
+                                    class="about-img">
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div id="special" class="content-section">
+
+                    <div class="row g-4">
+
+                        <div class="col-md-6">
+                            <div class="special-card shadow">
+                                <img src="https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=700"
+                                    class="special-img">
+                                <div class="p-4">
+                                    <h2 class="mb-4">Tropical Sunrise Juice</h2>
+                                    <p class="lh-lg mb-0">
+                                        Fresh mango, pineapple, and orange blend.
+                                        Chilled and refreshing for sunny days.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="special-card shadow">
+                                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=700"
+                                    class="special-img">
+                                <div class="p-4">
+                                    <h2 class="mb-4">Butter Croissant</h2>
+                                    <p class="lh-lg mb-0">
+                                        Golden flaky croissant baked fresh daily.
+                                        Perfect with espresso or cappuccino.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="special-card shadow">
+                                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700"
+                                    class="special-img">
+                                <div class="p-4">
+                                    <h2 class="mb-4">Classic Cheese Burger</h2>
+                                    <p class="lh-lg mb-0">
+                                        Juicy grilled patty with melted cheese.
+                                        Served hot with fresh vegetables.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="special-card shadow">
+                                <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=700"
+                                    class="special-img">
+                                <div class="p-4">
+                                    <h2 class="mb-4">Chocolate Delight Cake</h2>
+                                    <p class="lh-lg mb-0">
+                                        Rich chocolate layered cake with cream.
+                                        Sweet finish for every meal.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="special-card shadow">
+                                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=700"
+                                    class="special-img">
+                                <div class="p-4">
+                                    <h2 class="mb-4">Healthy Veggie Salad</h2>
+                                    <p class="lh-lg mb-0">
+                                        Fresh greens with colorful vegetables.
+                                        Light, healthy, and tasty choice.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="special-card shadow">
+                                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700"
+                                    class="special-img">
+                                <div class="p-4">
+                                    <h2 class="mb-4">Italian Pizza Slice</h2>
+                                    <p class="lh-lg mb-0">
+                                        Crispy crust topped with melted cheese.
+                                        Freshly baked with rich flavor.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div id="contact" class="content-section">
+
+
+                    <div class="info-box shadow mb-4">
+                        <h2 class="mb-4">Contact Us</h2>
+                        <p><strong>Address:</strong> SeaCafe, Nagercoil, India</p>
+                        <p><strong>Phone:</strong> +91 1234567891</p>
+                        <p><strong>Email:</strong> contact@seacafe.com</p>
+                    </div>
+
+
+                    <div class="info-box shadow">
+                        <h3 class="mb-4">Send Message</h3>
+
+                        <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                            <div class="mb-3">
+                                <input type="text" id="nameInput" class="form-control transparent-input" placeholder="Name" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="email" id="emailInput" class="form-control transparent-input" placeholder="Email" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <textarea id="messageInput" class="form-control transparent-input" rows="5" placeholder="Message"
+                                    required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn w-100">
+                                Submit
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function changeSection(sectionId, btn) {
+
+            document.querySelectorAll('.content-section').forEach(sec => {
+                sec.classList.remove('show-content');
+            });
+
+            document.getElementById(sectionId).classList.add('show-content');
+
+            document.querySelectorAll('.nav-btn').forEach(nav => {
+                nav.classList.remove('active-nav');
+            });
+
+            btn.classList.add('active-nav');
+        }
+
+        function showSubMenu(menuId, tabId) {
+
+            document.querySelectorAll('.submenu-content').forEach(menu => {
+                menu.style.display = 'none';
+            });
+
+            document.getElementById(menuId).style.display = 'block';
+
+            document.querySelectorAll('.tab-link').forEach(tab => {
+                tab.classList.remove('active-tab');
+            });
+
+            document.getElementById(tabId).classList.add('active-tab');
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault(); 
+            
+            alert("Feedback sent successfully!");
+            
+            document.getElementById('contactForm').reset();
+        }
+    </script>
+
+</body>
+
+</html>
