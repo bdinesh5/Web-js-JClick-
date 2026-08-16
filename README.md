@@ -1,6 +1,6 @@
 # ❁ Web JS — Web Application
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-008B8B?style=for-the-badge\&logo=vercel\&logoColor=white)](https://bdinesh5.github.io/Web-js-JClick/)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-008B8B?style=for-the-badge\&logo=vercel\&logoColor=white)](https://bdinesh5.github.io/Web-js-JClick-/)
 
 ❯ Responsive single-page web application built with JavaScript, featuring dynamic navigation and interactive UI elements.
 
