@@ -1,8 +1,8 @@
-# ❁ Sea Cafe — Web Application
+# ❁ Web JS — Web Application
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-008B8B?style=for-the-badge\&logo=vercel\&logoColor=white)](https://bdinesh5.github.io/Seacafe-task-JClick/)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-008B8B?style=for-the-badge\&logo=vercel\&logoColor=white)](https://bdinesh5.github.io/Web-js-JClick/)
 
-A clean, responsive, and feature-rich single-page cafe web application developed as a major HTML, CSS, Bootstrap, and JavaScript project at **JClick Solutions**. Built with a sleek dark-glassmorphism UI aesthetic, smooth transitions, and dynamic tabbed navigation.
+❯ Responsive single-page web application built with JavaScript, featuring dynamic navigation and interactive UI elements.
 
 ---
 
@@ -45,3 +45,13 @@ A clean, responsive, and feature-rich single-page cafe web application developed
 * **Styling:** CSS3, Bootstrap 5.3
 * **Interactivity:** JavaScript (ES6)
 * **Icons:** Font Awesome 6
+
+---
+
+## ☞ Project Focus
+
+❯ **JavaScript Oriented** — Built primarily around JavaScript-driven navigation, interactions, and client-side functionality.
+
+❯ **Responsive Design** — Structured to provide a consistent experience across desktop, tablet, and mobile screens.
+
+❯ **Interactive UI** — Combines dynamic content handling with modern visual effects and user interactions.
