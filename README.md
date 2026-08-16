@@ -1,12 +1,12 @@
-# 🌊 Sea Cafe — Web Application
+# ❁ Sea Cafe — Web Application
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-008B8B?style=for-the-badge&logo=vercel&logoColor=white)](https://bdinesh5.github.io/Seacafe-task-JClick/)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-008B8B?style=for-the-badge\&logo=vercel\&logoColor=white)](https://bdinesh5.github.io/Seacafe-task-JClick/)
 
 A clean, responsive, and feature-rich single-page cafe web application developed as a major HTML, CSS, Bootstrap, and JavaScript project at **JClick Solutions**. Built with a sleek dark-glassmorphism UI aesthetic, smooth transitions, and dynamic tabbed navigation.
 
 ---
 
-## 🏛️ Project Context
+## ◩ Project Context
 
 * **Institution:** JClick Solutions
 * **Curriculum:** HTML, CSS, Bootstrap, and JavaScript Major Project
@@ -14,15 +14,15 @@ A clean, responsive, and feature-rich single-page cafe web application developed
 
 ---
 
-## 📸 Preview
+## ◪ Preview
 
-| Home Page | Feedback Interaction |
-| :---: | :---: |
+|                         Home Page                        |                       Feedback Interaction                       |
+| :------------------------------------------------------: | :--------------------------------------------------------------: |
 | <img src="docs/home.png" width="400" alt="Home Preview"> | <img src="docs/feedback.png" width="400" alt="Feedback Preview"> |
 
 ---
 
-## ✨ Features
+## ❂ Features
 
 * **Single-Page Architecture (SPA):** Seamless switching between *Menu*, *About*, *Special*, and *Contact* sections without page reloads using vanilla JavaScript.
 * **Dynamic Menu Sub-Navigation:** Interactive category filtering for *Iced Coffee*, *Hot Coffee*, and *Fruit Juice*.
@@ -32,7 +32,7 @@ A clean, responsive, and feature-rich single-page cafe web application developed
 
 ---
 
-## 🚀 Built With
+## ⌘ Built With
 
 <p>
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
